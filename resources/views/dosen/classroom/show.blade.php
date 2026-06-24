@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/dosen.cl.show.css') }}">
+    <script src="{{ asset('js/dosen.cl.show.js') }}"></script>
+@endsection
 @section('content')
     <div class="space-y-6 md:space-y-8">
 
@@ -406,94 +409,7 @@
         </div>
     </div>
 
-    <script>
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
 
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
 
-        function openMateriModal(ptmId) {
-            document.getElementById('formMateri').action = '/dosen/classroom/pertemuan/' + ptmId + '/materi';
-            openModal('modalMateri');
-        }
 
-        function openTugasModal(ptmId) {
-            document.getElementById('formTugas').action = '/dosen/classroom/pertemuan/' + ptmId + '/tugas';
-            openModal('modalTugas');
-        }
-
-        function openGradingModal(submissionId, currentNilai, currentCatatan) {
-            document.getElementById('formGrading').action = '/dosen/classroom/submission/' + submissionId + '/nilai';
-            document.getElementById('inputNilai').value = currentNilai != 'null' && currentNilai ? currentNilai : '';
-            document.getElementById('inputCatatan').value = currentCatatan != 'null' && currentCatatan ? currentCatatan : '';
-            openModal('modalGrading');
-        }
-
-        // Close modal on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const modals = ['modalPertemuan', 'modalMateri', 'modalTugas', 'modalGrading'];
-                modals.forEach(modal => {
-                    closeModal(modal);
-                });
-            }
-        });
-    </script>
-
-    <style>
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-        }
-        
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes scale-in {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
-        }
-        
-        .animate-fade-in-up {
-            animation: fade-in-up 0.4s ease-out forwards;
-            opacity: 0;
-        }
-        
-        .animate-scale-in {
-            animation: scale-in 0.2s ease-out forwards;
-        }
-        
-        /* Scrollbar styling */
-        .overflow-x-auto, .max-h-52 {
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #c7d2fe;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #818cf8;
-        }
-    </style>
 @endsection

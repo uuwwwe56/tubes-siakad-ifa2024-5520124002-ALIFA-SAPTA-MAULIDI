@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Kelola Data Mahasiswa')
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/mahasiswa.css') }}">
+@endsection
 
 @section('sidebar-menu')
     <a href="{{ route('admin.dashboard') }}"
@@ -334,84 +337,5 @@
 
     </div>
 
-    <style>
-        @keyframes pulse-slow {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scale(1.05);
-            }
-        }
-        
-        @keyframes slide-in {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
-        }
-        
-        .animate-slide-in {
-            animation: slide-in 0.3s ease-out forwards;
-        }
-        
-        /* Pagination styling */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .pagination .page-item .page-link {
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #64748b;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-        
-        .pagination .page-item.active .page-link {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            color: white;
-            border-color: transparent;
-        }
-        
-        .pagination .page-item .page-link:hover {
-            background-color: #f1f5f9;
-            transform: translateY(-1px);
-        }
-        
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #c7d2fe;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #818cf8;
-        }
-    </style>
+
 @endsection

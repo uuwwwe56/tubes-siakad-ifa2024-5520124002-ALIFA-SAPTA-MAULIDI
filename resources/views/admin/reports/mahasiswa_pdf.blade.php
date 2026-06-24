@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Laporan Data Mahasiswa - SCHOOLINK</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; color: #333; line-height: 1.4; }
-        .kop-surat { text-align: center; margin-bottom: 20px; border-bottom: 3px double #000; padding-bottom: 10px; }
-        .kop-surat h1 { margin: 0; font-size: 18px; font-weight: bold; uppercase; letter-spacing: 1px; }
-        .kop-surat p { margin: 3px 0 0 0; font-size: 10px; color: #555; }
-        .judul-laporan { text-align: center; margin-bottom: 15px; }
-        .judul-laporan h2 { margin: 0; font-size: 13px; text-transform: uppercase; border-bottom: 1px solid #ddd; display: inline-block; padding-bottom: 3px; }
-        .judul-laporan p { margin: 5px 0 0 0; font-size: 9px; color: #666; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 7px 10px; text-align: left; font-weight: bold; color: #1e293b; text-transform: uppercase; font-size: 10px; }
-        td { border: 1px solid #cbd5e1; padding: 7px 10px; color: #334155; }
-        tr:nth-child(even) { background-color: #f8fafc; }
-        .ttd-container { margin-top: 40px; float: right; width: 200px; text-align: center; }
-        .ttd-container p { margin: 0; }
-        .ttd-space { height: 60px; }
-        .footer { position: fixed; bottom: -10px; left: 0; right: 0; text-align: left; font-size: 8px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 4px; }
+        {!! file_get_contents(public_path('css/mahasiswa_pdf.css')) !!}
     </style>
 </head>
+
 <body>
 
     <div class="kop-surat">
@@ -44,22 +32,24 @@
         </thead>
         <tbody>
             @forelse($data as $key => $item)
-            <tr>
-                <td style="text-align: center;">{{ $key + 1 }}</td>
-                <td style="font-family: monospace; font-size: 12px;">{{ $item->npm }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>
-                    @if($item->dosen)
-                        {{ $item->dosen->nama }} <span style="color: #64748b; font-size: 9px;">({{ $item->nidn }})</span>
-                    @else
-                        <span style="color: #94a3b8; font-style: italic;">Belum diplot</span>
-                    @endif
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;">{{ $key + 1 }}</td>
+                    <td style="font-family: monospace; font-size: 12px;">{{ $item->npm }}</td>
+                    <td>{{ $item->nama }}</td>
+                    <td>
+                        @if ($item->dosen)
+                            {{ $item->dosen->nama }} <span
+                                style="color: #64748b; font-size: 9px;">({{ $item->nidn }})</span>
+                        @else
+                            <span style="color: #94a3b8; font-style: italic;">Belum diplot</span>
+                        @endif
+                    </td>
+                </tr>
             @empty
-            <tr>
-                <td colspan="4" style="text-align: center; color: #94a3b8; font-style: italic;">Tidak ada data mahasiswa yang tersedia.</td>
-            </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #94a3b8; font-style: italic;">Tidak ada data
+                        mahasiswa yang tersedia.</td>
+                </tr>
             @endforelse
         </tbody>
     </table>
@@ -77,4 +67,5 @@
     </div>
 
 </body>
+
 </html>

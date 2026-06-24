@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard Mahasiswa')
-
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/dashMhs.css') }}">
+@endsection
 @section('content')
 <div class="space-y-6 md:space-y-8">
     
@@ -248,21 +250,6 @@
 
 </div>
 
-<style>
-    @keyframes pulse-slow {
-        0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.6;
-            transform: scale(1.05);
-        }
-    }
-    
-    .animate-pulse-slow {
-        animation: pulse-slow 4s ease-in-out infinite;
-    }
-</style>
+
 
 @endsection

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Ruang Kelas')
-
+@section('styles')
+    <script src="{{ asset('js/mhs.cl.show.js') }}"></script>
+@endsection
 @section('content')
 <div class="space-y-6">
 
@@ -201,14 +203,5 @@
     </div>
 </div>
 
-<script>
-    function toggleEditForm(tugasId) {
-        const form = document.getElementById(`edit-form-${tugasId}`);
-        if(form.classList.contains('hidden')) {
-            form.classList.remove('hidden');
-        } else {
-            form.classList.add('hidden');
-        }
-    }
-</script>
+
 @endsection

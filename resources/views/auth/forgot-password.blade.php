@@ -2,6 +2,11 @@
 
 @section('title', 'Lupa Password')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/forgot.css') }}">
+    <script src="{{ asset('js/forgot.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="min-h-[80vh] flex items-center justify-center py-8 px-4 sm:px-6">
     <div class="w-full max-w-md mx-auto">
@@ -141,61 +146,6 @@
     </div>
 </div>
 
-<style>
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-8px);
-        }
-    }
-    
-    .animate-fade-in-up {
-        animation: fadeInUp 0.5s ease-out forwards;
-    }
-    
-    .animate-float {
-        animation: float 3s ease-in-out infinite;
-    }
-    
-    /* Hover effect for cards */
-    .hover\:shadow-3xl:hover {
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-    
-    /* Responsive */
-    @media (max-width: 640px) {
-        .animate-fade-in-up {
-            animation-duration: 0.3s;
-        }
-    }
-</style>
 
-{{-- Optional: Tambahkan script untuk validasi sederhana --}}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Efek tambahan untuk interaksi
-        const cards = document.querySelectorAll('.group');
-        cards.forEach(card => {
-            card.addEventListener('click', function() {
-                // Optional: tambah efek ripple atau tracking
-                console.log('User mengakses menu bantuan');
-            });
-        });
-    });
-</script>
 
 @endsection

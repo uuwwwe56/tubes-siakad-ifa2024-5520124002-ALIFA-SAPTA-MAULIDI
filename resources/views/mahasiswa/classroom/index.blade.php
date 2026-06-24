@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Kelas Kuliah Saya')
-
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/mhs.cl.index.css') }}">
+@endsection
 @section('content')
     <div class="space-y-6 md:space-y-8">
 
@@ -215,56 +217,5 @@
         @endif
     </div>
 
-    <style>
-        @keyframes pulse-slow {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scale(1.05);
-            }
-        }
-        
-        @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
-        }
-        
-        .animate-fade-in-up {
-            animation: fade-in-up 0.4s ease-out forwards;
-            opacity: 0;
-        }
-        
-        /* Line clamp untuk judul panjang */
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        /* Card hover effect */
-        .group {
-            transition: all 0.3s ease;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .grid {
-                gap: 1rem;
-            }
-        }
-    </style>
+
 @endsection
